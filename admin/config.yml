@@ -1,0 +1,40 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+media_folder: "assets"
+public_folder: "/assets"
+publish_mode: editorial_workflow
+
+collections:
+  - name: "settings"
+    label: "Website Content"
+    files:
+      - name: "site"
+        label: "Homepage"
+        file: "content/site.json"
+        format: "json"
+        fields:
+          - { label: "Browser Title", name: "siteTitle", widget: "string" }
+          - { label: "Brand Name", name: "brandName", widget: "string" }
+          - { label: "Brand Subline", name: "brandSubline", widget: "string" }
+          - { label: "Hero Tag", name: "heroTag", widget: "string" }
+          - { label: "Hero Title", name: "heroTitle", widget: "text" }
+          - { label: "Hero Description", name: "heroDescription", widget: "text" }
+          - { label: "Primary Button", name: "primaryButton", widget: "string" }
+          - { label: "Secondary Button", name: "secondaryButton", widget: "string" }
+          - { label: "Hero Caption Title", name: "heroCaptionTitle", widget: "string" }
+          - { label: "Hero Caption Meta", name: "heroCaptionMeta", widget: "string" }
+          - { label: "About Title", name: "aboutTitle", widget: "text" }
+          - { label: "About Paragraph 1", name: "aboutParagraph1", widget: "text" }
+          - { label: "About Paragraph 2", name: "aboutParagraph2", widget: "text" }
+          - { label: "Coverage Title", name: "coverageTitle", widget: "text" }
+          - { label: "Coverage Lead", name: "coverageLead", widget: "string" }
+          - { label: "Coverage Body", name: "coverageBody", widget: "text" }
+          - { label: "Contact Title", name: "contactTitle", widget: "text" }
+          - { label: "Address", name: "address", widget: "text" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Working Hours", name: "workingHours", widget: "string" }
+          - { label: "Footer Description", name: "footerDescription", widget: "string" }

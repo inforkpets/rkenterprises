@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RK Enterprises — Multi-Brand Pet Products Distributor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sand:#F5F0E8;--warm-white:#FAFAF7;--charcoal:#1C1C1A;
+  --muted:#6B6860;--border:#E0DAD0;--green:#2C4A35;
+  --green-light:#4A7A5A;--green-pale:#EAF2EC;
+  --terracotta:#C4704A;--gold:#B8912A;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--warm-white);color:var(--charcoal);font-size:15px;line-height:1.7;overflow-x:hidden}
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.82rem 5vw;
+  background:rgba(250,250,247,0.97);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.nav-left{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo{height:44px;width:44px;border-radius:50%;object-fit:cover;border:1px solid rgba(184,145,42,.3);flex-shrink:0}
+.nav-brand-text{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;color:var(--charcoal);letter-spacing:0.03em;display:block}
+.nav-brand-sub{font-size:10px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);display:block;margin-top:-3px}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.nav-links a{font-size:12px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--charcoal)}
+.nav-cta{color:var(--warm-white)!important;background:var(--green);padding:.52rem 1.4rem;border-radius:2px;text-decoration:none!important;transition:background .2s!important}
+.nav-cta:hover{background:var(--green-light)!important}
+
+.hero{
+  min-height:780px;display:grid;grid-template-columns:minmax(420px,.92fr) minmax(480px,1fr);
+  align-items:center;column-gap:clamp(2.2rem,4vw,5rem);padding:6.2rem 5vw 0;
+  position:relative;overflow:hidden;background:var(--warm-white);
+}
+.hero-right-bg{
+  position:absolute;top:0;right:0;bottom:0;width:47%;
+  background:var(--sand);clip-path:polygon(9% 0,100% 0,100% 100%,0 100%);z-index:0;
+}
+.hero-left{position:relative;z-index:1;padding-right:0;animation:fadeUp .85s ease both}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--terracotta);margin-bottom:1.6rem;
+}
+.hero-tag::before{content:'';display:block;width:28px;height:1px;background:var(--terracotta)}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.9rem,4.05vw,4.15rem);font-weight:400;
+  line-height:1.06;color:var(--charcoal);margin-bottom:1.35rem;
+}
+.hero h1 em{font-style:italic;color:var(--green)}
+.hero-desc{font-size:14px;font-weight:300;color:var(--muted);max-width:420px;line-height:1.85;margin-bottom:2.4rem}
+.hero-actions{display:flex;align-items:center;gap:1.6rem}
+.btn-primary{
+  display:inline-block;background:var(--green);color:var(--warm-white);
+  font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  padding:.82rem 2rem;border-radius:2px;text-decoration:none;transition:background .2s,transform .15s;
+}
+.btn-primary:hover{background:var(--green-light);transform:translateY(-1px)}
+.btn-ghost{
+  font-size:12px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;border-bottom:1px solid var(--border);
+  padding-bottom:2px;transition:color .2s,gap .2s;display:flex;align-items:center;gap:6px;
+}
+.btn-ghost:hover{color:var(--charcoal);gap:10px}
+.hero-right{
+  position:relative;z-index:1;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;padding:2.2rem 0 2.8rem;
+  animation:fadeUp 1s .15s ease both;
+}
+.hero-product-scene{
+  position:relative;width:min(560px,100%);aspect-ratio:4/3;
+  border:1px solid rgba(184,145,42,.24);background:var(--sand);
+  overflow:hidden;box-shadow:0 26px 72px rgba(28,28,26,.12);
+}
+.hero-product-scene img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.hero-product-scene::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(28,28,26,0) 52%,rgba(28,28,26,.44) 100%);
+  pointer-events:none;
+}
+.hero-scene-label{
+  position:absolute;left:1rem;right:1rem;bottom:.85rem;z-index:2;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  color:white;font-size:9px;letter-spacing:.12em;text-transform:uppercase;
+}
+.hero-scene-label strong{
+  font-family:'Cormorant Garamond',serif;font-size:1.16rem;font-weight:500;letter-spacing:0;text-transform:none;
+}
+.hero-logo-ring{
+  width:155px;height:155px;border-radius:50%;
+  border:1px solid rgba(184,145,42,.35);
+  box-shadow:0 0 0 14px rgba(44,74,53,.04),0 0 0 28px rgba(44,74,53,.02);
+  overflow:hidden;flex-shrink:0;
+}
+.hero-logo-ring img{width:100%;height:100%;object-fit:cover}
+.hero-caption{
+  margin-top:1.8rem;text-align:center;
+  font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:300;font-style:italic;
+  color:var(--muted);line-height:1.5;
+}
+.hero-caption strong{font-style:normal;font-weight:500;color:var(--charcoal)}
+.hero-stats{
+  position:relative;z-index:2;grid-column:1/-1;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--border);background:var(--warm-white);margin-top:.35rem;
+  animation:fadeUp 1s .3s ease both;
+}
+.stat-item{padding:1.6rem 2rem;border-right:1px solid var(--border)}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:400;line-height:1;color:var(--charcoal)}
+.stat-num span{color:var(--terracotta)}
+.stat-label{font-size:10px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+.marquee-wrap{background:var(--green);padding:.75rem 0;overflow:hidden}
+.marquee-track{display:flex;animation:marquee 28s linear infinite;width:max-content}
+.marquee-item{display:flex;align-items:center;gap:.8rem;padding:0 2.2rem;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);white-space:nowrap}
+.marquee-dot{width:3px;height:3px;background:rgba(255,255,255,.3);border-radius:50%}
+
+section{padding:5.5rem 5vw}
+.section-tag{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--terracotta);margin-bottom:1rem}
+.section-tag::before{content:'';display:block;width:24px;height:1px;background:var(--terracotta)}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.2vw,3rem);font-weight:400;line-height:1.15;color:var(--charcoal);margin-bottom:1.2rem}
+.section-title em{font-style:italic;color:var(--green)}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:center;margin-top:.5rem}
+.about-text p{color:var(--muted);font-weight:300;margin-bottom:1.1rem;line-height:1.85}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.8rem}
+.feature-item{padding:1.1rem;border:1px solid var(--border);border-radius:2px}
+.feature-item strong{display:block;font-size:13px;font-weight:500;color:var(--charcoal);margin-bottom:3px}
+.feature-item span{font-size:12px;color:var(--muted);font-weight:300}
+.about-visual{position:relative}
+.about-card-main{background:var(--sand);border-radius:2px;padding:3rem;text-align:center}
+.image-panel{
+  position:relative;overflow:hidden;border:1px solid rgba(184,145,42,.22);
+  background:var(--sand);box-shadow:0 24px 70px rgba(28,28,26,.09);
+}
+.image-panel img{width:100%;height:100%;min-height:320px;object-fit:cover;display:block}
+.image-panel::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(28,28,26,0) 48%,rgba(28,28,26,.48) 100%);
+  pointer-events:none;
+}
+.image-panel-caption{
+  position:absolute;left:1.1rem;right:1.1rem;bottom:1rem;z-index:1;
+  color:#fff;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+}
+.image-panel-caption strong{
+  display:block;font-family:'Cormorant Garamond',serif;font-size:1.45rem;
+  font-weight:500;letter-spacing:0;text-transform:none;line-height:1.1;margin-bottom:.18rem;
+}
+.big-text{font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:300;color:var(--green);line-height:1}
+.big-label{font-size:11px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.5rem}
+.about-badge{position:absolute;bottom:-1rem;right:-1rem;background:var(--terracotta);color:white;padding:1.1rem 1.5rem;border-radius:2px;text-align:center}
+.about-badge .num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;line-height:1;display:block}
+.about-badge .lbl{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+
+.products{background:var(--sand)}
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;margin-top:2.5rem}
+.product-card{background:var(--warm-white);padding:2.2rem 1.8rem;border-bottom:2px solid transparent;transition:border-color .25s;position:relative;overflow:hidden}
+.product-card::before{
+  content:attr(data-visual);position:absolute;right:1rem;top:.7rem;
+  font-size:4rem;line-height:1;opacity:.09;filter:saturate(.8);
+}
+.product-card::after{
+  content:'';display:block;height:88px;margin:1.4rem -1.8rem -2.2rem;
+  background:
+    linear-gradient(135deg,rgba(44,74,53,.12),rgba(196,112,74,.1)),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.55) 0 18px,rgba(255,255,255,.2) 18px 36px);
+  border-top:1px solid var(--border);
+}
+.product-card:hover{border-bottom-color:var(--terracotta)}
+.product-icon{width:42px;height:42px;background:var(--sand);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:1.2rem}
+.product-card h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;color:var(--charcoal);margin-bottom:.5rem}
+.product-card p{font-size:12px;font-weight:300;color:var(--muted);line-height:1.7;margin-bottom:1rem}
+.product-brands{display:flex;flex-wrap:wrap;gap:5px}
+.brand-tag{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--green);background:rgba(44,74,53,.08);padding:3px 8px;border-radius:1px}
+
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:3rem}
+.why-item{background:var(--warm-white);padding:2.5rem 2rem}
+.why-num{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:300;color:var(--sand);line-height:1;margin-bottom:.8rem;-webkit-text-stroke:1px var(--border)}
+.why-item h3{font-size:14px;font-weight:500;color:var(--charcoal);margin-bottom:.6rem}
+.why-item p{font-size:12px;font-weight:300;color:var(--muted);line-height:1.8}
+
+.brands-section{background:var(--charcoal);padding:5.5rem 5vw}
+.brands-section .section-tag{color:rgba(184,145,42,.9)}
+.brands-section .section-tag::before{background:rgba(184,145,42,.9)}
+.brands-section .section-title{color:var(--warm-white)}
+.brands-section .section-title em{color:rgba(200,165,70,.9)}
+.brands-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2rem;flex-wrap:wrap;gap:1rem}
+.brands-count{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:300;color:rgba(184,145,42,.5);line-height:1}
+.brands-count small{font-size:1rem;color:rgba(255,255,255,.25);font-family:'DM Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;margin-left:.5rem}
+.brand-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.5rem}
+.brand-filter{font-size:11px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.1);padding:.4rem 1rem;border-radius:1px;cursor:pointer;background:transparent;transition:all .2s}
+.brand-filter.active,.brand-filter:hover{color:var(--charcoal);background:rgba(184,145,42,.85);border-color:transparent}
+.brand-search{width:100%;max-width:300px;padding:.62rem 1rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:2px;color:rgba(255,255,255,.8);font-family:'DM Sans',sans-serif;font-size:13px;outline:none;transition:border-color .2s;margin-bottom:1.8rem}
+.brand-search::placeholder{color:rgba(255,255,255,.22)}
+.brand-search:focus{border-color:rgba(184,145,42,.5)}
+.brands-grid{display:flex;flex-wrap:wrap;gap:8px;min-height:180px}
+.brand-pill{font-size:12px;font-weight:400;letter-spacing:.03em;color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.08);padding:.48rem 1.1rem;border-radius:2px;cursor:default;transition:all .2s;background:rgba(255,255,255,.03);white-space:nowrap}
+.brand-pill:hover{color:var(--charcoal);background:rgba(184,145,42,.85);border-color:transparent;transform:translateY(-1px)}
+.brand-pill.hidden{display:none}
+
+
+/* COVERAGE — city boxes */
+.map-section{background:var(--sand)}
+.coverage-visual{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:2.2rem;
+  align-items:end;max-width:1160px;margin:2.4rem auto 0;
+}
+.coverage-copy p{color:var(--muted);font-weight:300;max-width:480px;line-height:1.85}
+.coverage-copy strong{display:block;color:var(--charcoal);font-size:13px;margin-bottom:.3rem}
+.coverage-visual .image-panel img{min-height:280px}
+.states-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.5px;
+  margin-top:2.8rem;
+  background:var(--border);
+}
+.state-block{
+  background:var(--warm-white);
+  padding:1.8rem 1.6rem;
+  transition:background .2s;
+}
+.state-block:hover{background:#F7F3ED}
+.state-header{
+  display:flex;align-items:center;gap:8px;
+  margin-bottom:1rem;
+  padding-bottom:0.8rem;
+  border-bottom:1px solid var(--border);
+}
+.state-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.15rem;font-weight:500;
+  color:var(--charcoal);letter-spacing:0.01em;
+}
+.state-badge{
+  font-size:9px;font-weight:600;letter-spacing:0.12em;
+  text-transform:uppercase;padding:2px 7px;border-radius:1px;
+}
+.state-badge.hq{
+  background:var(--terracotta);color:white;
+}
+.city-wrap{display:flex;flex-wrap:wrap;gap:5px}
+.city-pill{
+  font-size:11px;font-weight:400;
+  color:var(--green);
+  background:rgba(44,74,53,.07);
+  border:1px solid rgba(44,74,53,.12);
+  padding:3px 10px;border-radius:1px;
+  transition:all .18s;cursor:default;
+}
+.city-pill:hover{
+  background:var(--green);color:white;border-color:transparent;
+}
+
+
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:start;margin-top:2rem}
+.contact-visual{margin-top:1.4rem}
+.contact-visual img{min-height:220px}
+.contact-info h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--charcoal);margin-bottom:1.6rem}
+.contact-row{display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border)}
+.contact-row:first-of-type{border-top:1px solid var(--border)}
+.contact-row .icon{font-size:15px;margin-top:2px}
+.contact-row strong{display:block;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.contact-row span{font-size:13px;color:var(--charcoal)}
+.contact-form{display:flex;flex-direction:column;gap:1rem}
+.form-group{display:flex;flex-direction:column;gap:4px}
+.form-group label{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.form-group input,.form-group textarea,.form-group select{padding:.72rem 1rem;background:transparent;border:1px solid var(--border);border-radius:2px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--charcoal);outline:none;transition:border-color .2s;resize:vertical}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--green)}
+.form-group textarea{min-height:100px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.btn-submit{display:inline-block;background:var(--green);color:var(--warm-white);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:.9rem 2.2rem;border:none;border-radius:2px;cursor:pointer;transition:background .2s;align-self:flex-start}
+.btn-submit:hover{background:var(--green-light)}
+
+footer{background:var(--sand);padding:2rem 5vw;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+.footer-left{display:flex;align-items:center;gap:10px}
+.footer-logo{width:32px;height:32px;border-radius:50%;object-fit:cover;border:1px solid rgba(184,145,42,.3)}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:500;color:var(--charcoal)}
+footer p{font-size:11px;color:var(--muted);font-weight:300}
+.footer-links{display:flex;gap:1.6rem}
+.footer-links a{font-size:11px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--charcoal)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+nav{transition:box-shadow .25s ease,padding .25s ease}
+nav.scrolled{box-shadow:0 14px 36px rgba(28,28,26,.08)}
+.nav-logo,.footer-logo,.hero-logo-ring img{background:#fff}
+.nav-left:focus-visible,.nav-links a:focus-visible,.btn-primary:focus-visible,.btn-ghost:focus-visible,.brand-filter:focus-visible,.btn-submit:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid rgba(196,112,74,.65);outline-offset:3px}
+.hero::before{
+  content:'';position:absolute;left:-8%;top:16%;width:38%;height:58%;
+  background:radial-gradient(circle at 50% 50%,rgba(196,112,74,.08),transparent 64%);
+  pointer-events:none;
+}
+.hero-left{max-width:640px}
+.hero h1{letter-spacing:0}
+.hero-desc{font-size:15px;color:#56534c}
+.hero-logo-ring{background:#fff;box-shadow:0 26px 70px rgba(44,74,53,.14),0 0 0 14px rgba(44,74,53,.05),0 0 0 28px rgba(44,74,53,.025)}
+.hero-right::before{
+  content:'Multi-brand supply network';position:absolute;top:8%;right:2%;
+  padding:.55rem .85rem;border:1px solid rgba(44,74,53,.14);background:rgba(250,250,247,.82);
+  backdrop-filter:blur(10px);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);
+  display:none;
+}
+.hero-right::after{
+  content:'Retailer-ready distribution';position:absolute;bottom:10%;left:3%;
+  padding:.55rem .85rem;background:var(--charcoal);color:rgba(255,255,255,.82);
+  font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  display:none;
+}
+.stat-item{transition:background .2s ease}
+.stat-item:hover{background:#F7F3ED}
+.marquee-wrap{box-shadow:inset 0 1px rgba(255,255,255,.08),inset 0 -1px rgba(0,0,0,.08)}
+section{position:relative}
+.about-grid,.contact-wrap{max-width:1160px;margin-left:auto;margin-right:auto}
+.about-card-main{min-height:280px;display:flex;flex-direction:column;justify-content:center;border:1px solid rgba(184,145,42,.16)}
+.feature-item,.product-card,.why-item,.state-block{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background .22s ease}
+.feature-item:hover,.product-card:hover,.why-item:hover,.state-block:hover{transform:translateY(-3px);box-shadow:0 18px 44px rgba(28,28,26,.07)}
+.product-card{min-height:245px}
+.product-icon{color:var(--terracotta);border:1px solid rgba(196,112,74,.15);position:relative;z-index:1}
+.why-item h3,.product-card h3{letter-spacing:.01em}
+.brands-section{background:linear-gradient(135deg,#171715 0%,#20251d 48%,#1C1C1A 100%)}
+.brand-filters{position:sticky;top:74px;z-index:10;background:rgba(28,28,26,.88);backdrop-filter:blur(16px);padding:.65rem 0}
+.brand-pill{user-select:none}
+.brand-search{display:block}
+.states-grid{box-shadow:0 22px 60px rgba(28,28,26,.06)}
+.state-block:nth-child(1){grid-column:span 2}
+.contact-info,.contact-form{background:var(--warm-white);border:1px solid var(--border);padding:2rem}
+.contact-form{box-shadow:0 22px 60px rgba(28,28,26,.07)}
+.btn-submit.is-sent{background:var(--terracotta)}
+footer{align-items:flex-start}
+
+@media (max-width: 1080px){
+  .nav-links{gap:1rem}
+  .hero{grid-template-columns:1fr 1fr;min-height:720px;column-gap:2rem}
+  .hero h1{font-size:clamp(2.6rem,4.6vw,3.7rem)}
+  .hero-product-scene{width:min(500px,100%)}
+  .products-grid,.why-grid{grid-template-columns:repeat(2,1fr)}
+  .states-grid{grid-template-columns:repeat(2,1fr)}
+  .state-block:nth-child(1){grid-column:span 1}
+}
+
+@media (max-width: 820px){
+  nav{position:sticky;padding:.75rem 4vw;align-items:flex-start;gap:1rem}
+  .nav-logo{width:38px;height:38px}
+  .nav-brand-text{font-size:1.08rem}
+  .nav-brand-sub{font-size:9px}
+  .nav-links{justify-content:flex-end;gap:.45rem .8rem;flex-wrap:wrap}
+  .nav-links a{font-size:10px;letter-spacing:.08em}
+  .nav-cta{padding:.42rem .74rem}
+  .hero{min-height:auto;grid-template-columns:1fr;padding:3.2rem 5vw 0;row-gap:1.4rem}
+  .hero-right-bg{width:100%;height:38%;top:auto;clip-path:none}
+  .hero-left{padding-right:0}
+  .hero-right{order:-1}
+  .hero h1{font-size:clamp(2.55rem,12vw,4.1rem)}
+  .hero-actions{align-items:stretch;gap:.8rem;flex-direction:column;max-width:320px}
+  .btn-primary,.btn-ghost{justify-content:center;text-align:center}
+  .hero-right{padding:1rem 0 1.8rem}
+  .hero-right::before,.hero-right::after{display:none}
+  .hero-product-scene{aspect-ratio:16/10;width:100%}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .stat-item:nth-child(2){border-right:none}
+  section{padding:4.2rem 5vw}
+  .about-grid,.contact-wrap,.coverage-visual{grid-template-columns:1fr;gap:2.2rem}
+  .about-features,.form-row{grid-template-columns:1fr}
+  .products-grid,.why-grid,.states-grid{grid-template-columns:1fr}
+  .brands-top{align-items:flex-start}
+  .brands-count{font-size:3rem}
+  .brand-filters{position:static}
+  .brand-search{max-width:none}
+  .contact-info,.contact-form{padding:1.35rem}
+  .image-panel img{min-height:240px}
+  footer{flex-direction:column}
+  .footer-links{flex-wrap:wrap;gap:.8rem 1.1rem}
+}
+
+@media (max-width: 520px){
+  body{font-size:14px}
+  .nav-left{width:100%}
+  .nav-links{width:100%;justify-content:flex-start}
+  .hero-tag,.section-tag{letter-spacing:.12em}
+  .hero-right{padding-top:1.2rem}
+  .hero-scene-label{align-items:flex-start;flex-direction:column;gap:.25rem}
+  .product-card::after{height:68px}
+  .hero-stats{grid-template-columns:1fr}
+  .stat-item{border-right:none;border-bottom:1px solid var(--border);padding:1.25rem 1.4rem}
+  .stat-item:last-child{border-bottom:none}
+  .section-title{font-size:clamp(1.9rem,10vw,2.45rem)}
+  .big-text{font-size:4rem}
+  .about-badge{right:.75rem;bottom:-.9rem}
+  .brand-filter{flex:1 1 calc(50% - 8px);padding:.48rem .5rem}
+  .brand-pill{white-space:normal}
+  .state-name{font-size:1.05rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-left" href="#">
+    <img class="nav-logo" src="data:image/jpeg;base64,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" alt="RK Enterprises">
+    <div>
+      <span class="nav-brand-text">RK Enterprises</span>
+      <span class="nav-brand-sub">Multi-Brand Distributor</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#brands">Brands</a></li>
+    <li><a href="#coverage">Coverage</a></li>
+    <li><a href="#contact" class="nav-cta">Partner With Us</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-right-bg"></div>
+  <div class="hero-left">
+    <div class="hero-tag">North India's Multi-Brand Distributor</div>
+    <h1>Supplying <em>trusted</em><br>pet brands<br>to trade.</h1>
+    <p class="hero-desc">From Jaipur to Delhi, Ahmedabad to Shimla — RK Enterprises distributes leading pet food, grooming, wellness, accessory, toy, and treat brands to retailers, clinics, and pet stores across 7 states.</p>
+    <div class="hero-actions">
+      <a href="#products" class="btn-primary">Explore Products</a>
+      <a href="#contact" class="btn-ghost">Become a Partner →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <figure class="hero-product-scene">
+      <img src="assets/rk-pet-distribution-hero.png" alt="Multi-brand pet product assortment distributed by RK Enterprises">
+      <figcaption class="hero-scene-label"><strong>Multi-brand portfolio</strong><span>Food · Grooming · Wellness · Accessories</span></figcaption>
+    </figure>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item"><div class="stat-num">1000<span>+</span></div><div class="stat-label">Retail Partners</div></div>
+    <div class="stat-item"><div class="stat-num">500<span>+</span></div><div class="stat-label">Vet Clinics</div></div>
+    <div class="stat-item"><div class="stat-num">30<span>+</span></div><div class="stat-label">Cities Covered</div></div>
+    <div class="stat-item"><div class="stat-num">50<span>+</span></div><div class="stat-label">Premium Brands</div></div>
+  </div>
+</section>
+
+<div class="marquee-wrap"><div class="marquee-track">
+  <div class="marquee-item">Pet Nutrition <div class="marquee-dot"></div></div>
+  <div class="marquee-item">Grooming <div class="marquee-dot"></div></div>
+  <div class="marquee-item">Health &amp; Wellness <div class="marquee-dot"></div></div>
+  <div class="marquee-item">Accessories <div class="marquee-dot"></div></div>
+  <div class="marquee-item">Treats &amp; Chews <div class="marquee-dot"></div></div>
+  <div class="marquee-item">Toys &amp; Enrichment <div class="marquee-dot"></div></div>
+  <div class="marquee-item">Veterinary Supplies <div class="marquee-dot"></div></div>
+  <div class="marquee-item">Bedding &amp; Habitat <div class="marquee-dot"></div></div>
+  <div class="marquee-item">Pet Nutrition <div class="marquee-dot"></div></div>
+  <div class="marquee-item">Grooming <div class="marquee-dot"></div></div>
+  <div class="marquee-item">Health &amp; Wellness <div class="marquee-dot"></div></div>
+  <div class="marquee-item">Accessories <div class="marquee-dot"></div></div>
+  <div class="marquee-item">Treats &amp; Chews <div class="marquee-dot"></div></div>
+  <div class="marquee-item">Toys &amp; Enrichment <div class="marquee-dot"></div></div>
+  <div class="marquee-item">Veterinary Supplies <div class="marquee-dot"></div></div>
+  <div class="marquee-item">Bedding &amp; Habitat <div class="marquee-dot"></div></div>
+</div></div>
+
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <div class="section-tag">Who We Are</div>
+      <h2 class="section-title">Built on trust,<br><em>driven by care.</em></h2>
+      <p>RK Enterprises is a multi-brand pet products distributor, connecting national and international brands with retailers, vet clinics, grooming salons, and pet stores across 7 states.</p>
+      <p>Operating from Jaipur since 2014, we have built a robust supply chain ensuring timely delivery, product authenticity, and dedicated partner support throughout the year.</p>
+      <div class="about-features">
+        <div class="feature-item"><strong>Timely Delivery</strong><span>Multi-state logistics network</span></div>
+        <div class="feature-item"><strong>100% Authentic</strong><span>Authorised brand partnerships</span></div>
+        <div class="feature-item"><strong>Wide Range</strong><span>50+ brands, 6+ categories</span></div>
+        <div class="feature-item"><strong>Trade Support</strong><span>Dedicated relationship managers</span></div>
+      </div>
+    </div>
+    <div class="about-visual reveal">
+      <figure class="image-panel">
+        <img src="assets/rk-pet-warehouse.png" alt="Organized pet product inventory distributed by RK Enterprises">
+        <figcaption class="image-panel-caption"><strong>Stocked for trade</strong>Food, care, toys, accessories and fast-moving pet essentials</figcaption>
+      </figure>
+      <div class="about-badge"><span class="num">7</span><span class="lbl">States Covered</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="products" id="products">
+  <div class="reveal"><div class="section-tag">What We Distribute</div><h2 class="section-title">Distributed <em>product categories.</em></h2></div>
+  <div class="products-grid">
+    <div class="product-card reveal" data-visual="Food"><div class="product-icon">&#x1F356;</div><h3>Pet Nutrition</h3><p>Complete and balanced food for dogs, cats, birds, and small animals in dry, wet, and raw formats.</p><div class="product-brands"><span class="brand-tag">Pedigree</span><span class="brand-tag">Royal Canin</span><span class="brand-tag">Drools</span></div></div>
+    <div class="product-card reveal" data-visual="Bath"><div class="product-icon">&#x2702;</div><h3>Grooming</h3><p>Shampoos, conditioners, brushes, clippers, and salon-grade tools for all breeds.</p><div class="product-brands"><span class="brand-tag">Wahl</span><span class="brand-tag">Beaphar</span><span class="brand-tag">TropiClean</span></div></div>
+    <div class="product-card reveal" data-visual="Care"><div class="product-icon">&#x2795;</div><h3>Health &amp; Wellness</h3><p>Supplements, dewormers, tick &amp; flea control, and preventive care products.</p><div class="product-brands"><span class="brand-tag">Himalaya</span><span class="brand-tag">Bravecto</span><span class="brand-tag">Virbac</span></div></div>
+    <div class="product-card reveal" data-visual="Gear"><div class="product-icon">&#x25C8;</div><h3>Accessories</h3><p>Leashes, collars, harnesses, crates, carriers, feeding bowls, and housing essentials.</p><div class="product-brands"><span class="brand-tag">Ferplast</span><span class="brand-tag">Trixie</span><span class="brand-tag">Rogz</span></div></div>
+    <div class="product-card reveal" data-visual="Treats"><div class="product-icon">&#x25C9;</div><h3>Treats &amp; Chews</h3><p>Reward treats, dental chews, and functional snacks for training and enrichment.</p><div class="product-brands"><span class="brand-tag">Dogsee</span><span class="brand-tag">Greenies</span><span class="brand-tag">Dentastix</span></div></div>
+    <div class="product-card reveal" data-visual="Play"><div class="product-icon">&#x2295;</div><h3>Toys &amp; Enrichment</h3><p>Interactive toys, puzzle feeders, and play equipment to keep pets active.</p><div class="product-brands"><span class="brand-tag">Kong</span><span class="brand-tag">Trixie</span><span class="brand-tag">Ruffwear</span></div></div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="reveal"><div class="section-tag">Why Partner With Us</div><h2 class="section-title">The RK Enterprises <em>advantage.</em></h2></div>
+  <div class="why-grid reveal">
+    <div class="why-item"><div class="why-num">01</div><h3>Direct Brand Partnerships</h3><p>We source through authorised brand and channel partnerships, helping trade partners access genuine multi-brand inventory with consistent pricing.</p></div>
+    <div class="why-item"><div class="why-num">02</div><h3>7-State Coverage</h3><p>Rajasthan, Gujarat, Haryana, Punjab, Himachal Pradesh, UP and MP &mdash; reliable delivery across all our operating states.</p></div>
+    <div class="why-item"><div class="why-num">03</div><h3>Dedicated Trade Support</h3><p>Each partner gets a dedicated relationship manager for orders, product queries, and year-round promotional support.</p></div>
+    <div class="why-item"><div class="why-num">04</div><h3>Flexible Credit Terms</h3><p>Customised credit cycles and payment options for retail stores, vet clinics, grooming salons, and pet stores.</p></div>
+    <div class="why-item"><div class="why-num">05</div><h3>Marketing Assistance</h3><p>In-store branding, product samples, and brand-sponsored schemes passed directly to our distribution partners.</p></div>
+    <div class="why-item"><div class="why-num">06</div><h3>24&ndash;48 hr Replenishment</h3><p>Order today, receive within 24&ndash;48 hours. Deep inventory buffers prevent stockouts during peak demand.</p></div>
+  </div>
+</section>
+
+<section class="brands-section" id="brands">
+  <div class="brands-top reveal">
+    <div><div class="section-tag">Our Brand Portfolio</div><h2 class="section-title">50+ <em>pet product brands,</em><br>one distribution partner.</h2></div>
+    <div class="brands-count">55<small>brands</small></div>
+  </div>
+  <div class="brand-filters reveal" id="brandFilters">
+    <button class="brand-filter active" data-cat="all">All Brands</button>
+    <button class="brand-filter" data-cat="food">Food &amp; Nutrition</button>
+    <button class="brand-filter" data-cat="health">Health &amp; Wellness</button>
+    <button class="brand-filter" data-cat="grooming">Grooming</button>
+    <button class="brand-filter" data-cat="accessories">Accessories</button>
+    <button class="brand-filter" data-cat="treats">Treats &amp; Chews</button>
+  </div>
+  <input class="brand-search reveal" id="brandSearch" type="text" placeholder="Search brands&hellip;">
+  <div class="brands-grid reveal" id="brandsGrid">
+    <span class="brand-pill" data-cat="food">Pedigree</span><span class="brand-pill" data-cat="food">Royal Canin</span><span class="brand-pill" data-cat="food">Drools</span><span class="brand-pill" data-cat="food">Hill&#39;s Science Diet</span><span class="brand-pill" data-cat="food">Purina Pro Plan</span><span class="brand-pill" data-cat="food">Farmina</span><span class="brand-pill" data-cat="food">Orijen</span><span class="brand-pill" data-cat="food">Acana</span><span class="brand-pill" data-cat="food">Whiskas</span><span class="brand-pill" data-cat="food">Felix</span><span class="brand-pill" data-cat="food">Taste of the Wild</span><span class="brand-pill" data-cat="food">Arden Grange</span><span class="brand-pill" data-cat="food">Fidele</span><span class="brand-pill" data-cat="food">Wellness Core</span><span class="brand-pill" data-cat="food">Nutro</span><span class="brand-pill" data-cat="food">Carnilove</span>
+    <span class="brand-pill" data-cat="health">Himalaya Pet</span><span class="brand-pill" data-cat="health">Beaphar</span><span class="brand-pill" data-cat="health">Bravecto</span><span class="brand-pill" data-cat="health">Nexgard</span><span class="brand-pill" data-cat="health">Frontline</span><span class="brand-pill" data-cat="health">Milbemax</span><span class="brand-pill" data-cat="health">Virbac</span><span class="brand-pill" data-cat="health">Zoetis</span><span class="brand-pill" data-cat="health">Elanco</span><span class="brand-pill" data-cat="health">Drontal</span><span class="brand-pill" data-cat="health">Petcare</span><span class="brand-pill" data-cat="health">Wiggles</span>
+    <span class="brand-pill" data-cat="grooming">Wahl</span><span class="brand-pill" data-cat="grooming">Oster</span><span class="brand-pill" data-cat="grooming">TropiClean</span><span class="brand-pill" data-cat="grooming">Bio-Groom</span><span class="brand-pill" data-cat="grooming">Earthbath</span><span class="brand-pill" data-cat="grooming">Isle of Dogs</span><span class="brand-pill" data-cat="grooming">Pet Head</span><span class="brand-pill" data-cat="grooming">Show Tech</span><span class="brand-pill" data-cat="grooming">Chris Christensen</span><span class="brand-pill" data-cat="grooming">Plush Puppy</span>
+    <span class="brand-pill" data-cat="accessories">Ferplast</span><span class="brand-pill" data-cat="accessories">Trixie</span><span class="brand-pill" data-cat="accessories">Kong</span><span class="brand-pill" data-cat="accessories">Rogz</span><span class="brand-pill" data-cat="accessories">Ruffwear</span><span class="brand-pill" data-cat="accessories">Julius K9</span><span class="brand-pill" data-cat="accessories">Flexi</span><span class="brand-pill" data-cat="accessories">HUFT</span>
+    <span class="brand-pill" data-cat="treats">Dogsee Chew</span><span class="brand-pill" data-cat="treats">Dentastix</span><span class="brand-pill" data-cat="treats">Greenies</span><span class="brand-pill" data-cat="treats">Whimzees</span><span class="brand-pill" data-cat="treats">Zuke&#39;s</span><span class="brand-pill" data-cat="treats">Inaba</span><span class="brand-pill" data-cat="treats">Purebites</span><span class="brand-pill" data-cat="treats">Redbarn</span><span class="brand-pill" data-cat="treats">Stella &amp; Chewy&#39;s</span>
+  </div>
+</section>
+
+<section class="map-section" id="coverage">
+  <div class="reveal">
+    <div class="section-tag">Where We Operate</div>
+    <h2 class="section-title">Serving <em>7 states,</em><br>30+ cities across India.</h2>
+  </div>
+
+  <div class="coverage-visual reveal">
+    <figure class="image-panel">
+      <img src="assets/rk-pet-delivery.png" alt="Pet products delivery from distributor to retail partner">
+      <figcaption class="image-panel-caption"><strong>Retailer-ready logistics</strong>Multi-brand supply delivered to stores, clinics and grooming salons</figcaption>
+    </figure>
+    <div class="coverage-copy">
+      <strong>From Jaipur to regional trade partners</strong>
+      <p>Our distribution network is designed for repeat ordering, stock replenishment and category coverage across food, health, grooming, toys, treats and accessories.</p>
+    </div>
+  </div>
+
+  <div class="states-grid reveal">
+
+    <div class="state-block">
+      <div class="state-header">
+        <span class="state-name">Rajasthan</span>
+        <span class="state-badge hq">HQ ★</span>
+      </div>
+      <div class="city-wrap">
+        <span class="city-pill">Jaipur</span>
+        <span class="city-pill">Jodhpur</span>
+        <span class="city-pill">Udaipur</span>
+        <span class="city-pill">Kota</span>
+        <span class="city-pill">Ajmer</span>
+        <span class="city-pill">Bikaner</span>
+        <span class="city-pill">Alwar</span>
+        <span class="city-pill">Sikar</span>
+      </div>
+    </div>
+
+    <div class="state-block">
+      <div class="state-header">
+        <span class="state-name">Gujarat</span>
+      </div>
+      <div class="city-wrap">
+        <span class="city-pill">Ahmedabad</span>
+        <span class="city-pill">Surat</span>
+        <span class="city-pill">Vadodara</span>
+        <span class="city-pill">Rajkot</span>
+        <span class="city-pill">Gandhinagar</span>
+      </div>
+    </div>
+
+    <div class="state-block">
+      <div class="state-header">
+        <span class="state-name">Haryana</span>
+      </div>
+      <div class="city-wrap">
+        <span class="city-pill">Gurugram</span>
+        <span class="city-pill">Faridabad</span>
+        <span class="city-pill">Hisar</span>
+        <span class="city-pill">Ambala</span>
+        <span class="city-pill">Karnal</span>
+      </div>
+    </div>
+
+    <div class="state-block">
+      <div class="state-header">
+        <span class="state-name">Punjab</span>
+      </div>
+      <div class="city-wrap">
+        <span class="city-pill">Chandigarh</span>
+        <span class="city-pill">Ludhiana</span>
+        <span class="city-pill">Amritsar</span>
+        <span class="city-pill">Jalandhar</span>
+        <span class="city-pill">Patiala</span>
+      </div>
+    </div>
+
+    <div class="state-block">
+      <div class="state-header">
+        <span class="state-name">Himachal Pradesh</span>
+      </div>
+      <div class="city-wrap">
+        <span class="city-pill">Shimla</span>
+        <span class="city-pill">Dharamshala</span>
+        <span class="city-pill">Manali</span>
+        <span class="city-pill">Solan</span>
+      </div>
+    </div>
+
+    <div class="state-block">
+      <div class="state-header">
+        <span class="state-name">Uttar Pradesh</span>
+      </div>
+      <div class="city-wrap">
+        <span class="city-pill">Lucknow</span>
+        <span class="city-pill">Agra</span>
+        <span class="city-pill">Noida</span>
+        <span class="city-pill">Kanpur</span>
+        <span class="city-pill">Varanasi</span>
+        <span class="city-pill">Ghaziabad</span>
+      </div>
+    </div>
+
+    <div class="state-block">
+      <div class="state-header">
+        <span class="state-name">Madhya Pradesh</span>
+      </div>
+      <div class="city-wrap">
+        <span class="city-pill">Bhopal</span>
+        <span class="city-pill">Indore</span>
+        <span class="city-pill">Gwalior</span>
+        <span class="city-pill">Jabalpur</span>
+        <span class="city-pill">Ujjain</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-tag reveal">Get In Touch</div>
+  <h2 class="section-title reveal">Become a <em>distribution partner.</em></h2>
+  <div class="contact-wrap">
+    <div class="contact-info reveal">
+      <h3>Reach us directly</h3>
+      <div class="contact-row"><span class="icon">&#128205;</span><div><strong>Address</strong><span>109, Rajendra Nagar, Sirsi Road, Vaishali Nagar, Jaipur 302021</span></div></div>
+      <div class="contact-row"><span class="icon">&#128222;</span><div><strong>Phone</strong><span>+91 7851817355</span></div></div>
+      <div class="contact-row"><span class="icon">&#9993;</span><div><strong>Email</strong><span>info@rkenterprises.in</span></div></div>
+      <div class="contact-row"><span class="icon">&#9711;</span><div><strong>Working Hours</strong><span>Mon – Sat · 9:00 AM – 7:00 PM</span></div></div>
+      <figure class="image-panel contact-visual">
+        <img src="assets/rk-pet-delivery.png" alt="Pet product cartons ready for retail distribution">
+        <figcaption class="image-panel-caption"><strong>Partner supply support</strong>For retailers, clinics, salons and online sellers</figcaption>
+      </figure>
+    </div>
+    <div class="contact-form reveal">
+      <div class="form-row">
+        <div class="form-group"><label>Your Name</label><input type="text" placeholder="Full name"></div>
+        <div class="form-group"><label>Business Name</label><input type="text" placeholder="Store / Clinic name"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+        <div class="form-group"><label>City</label><input type="text" placeholder="Your city"></div>
+      </div>
+      <div class="form-group">
+        <label>Business Type</label>
+        <select><option value="">Select type</option><option>Pet Store</option><option>Veterinary Clinic</option><option>Grooming Salon</option><option>Online Retailer</option><option>General Retail</option></select>
+      </div>
+      <div class="form-group"><label>Message</label><textarea placeholder="Tell us about your requirements&hellip;"></textarea></div>
+      <button class="btn-submit">Send Enquiry &rarr;</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-left">
+    <img class="footer-logo" src="data:image/jpeg;base64,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" alt="RK">
+    <div><div class="footer-brand">RK Enterprises</div><p>Multi-brand pet products distributor, Rajasthan</p></div>
+  </div>
+  <div class="footer-links">
+    <a href="#about">About</a><a href="#products">Products</a>
+    <a href="#brands">Brands</a><a href="#coverage">Coverage</a><a href="#contact">Contact</a>
+  </div>
+  <p>&copy; 2025 RK Enterprises. All rights reserved.</p>
+</footer>
+
+<script>
+const nav = document.querySelector('nav');
+const updateNav = () => nav.classList.toggle('scrolled', window.scrollY > 12);
+updateNav();
+window.addEventListener('scroll', updateNav, {passive:true});
+
+const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), {threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+const filters = document.querySelectorAll('.brand-filter');
+const pills = document.querySelectorAll('.brand-pill');
+const srch = document.getElementById('brandSearch');
+function doFilter(){
+  const cat = document.querySelector('.brand-filter.active').dataset.cat;
+  const q = srch.value.toLowerCase().trim();
+  pills.forEach(p => {
+    p.classList.toggle('hidden', !((cat==='all'||p.dataset.cat===cat)&&(!q||p.textContent.toLowerCase().includes(q))));
+  });
+}
+filters.forEach(f => f.addEventListener('click', () => {
+  filters.forEach(x => x.classList.remove('active'));
+  f.classList.add('active'); doFilter();
+}));
+srch.addEventListener('input', doFilter);
+
+document.querySelector('.contact-form').addEventListener('submit', e => e.preventDefault());
+document.querySelector('.btn-submit').addEventListener('click', e => {
+  e.currentTarget.classList.add('is-sent');
+  e.currentTarget.textContent = 'Enquiry Ready';
+});
+</script>
+</body>
+</html>
